@@ -7,7 +7,7 @@ public class Buyer {
     private final Gender gender;
     private String phoneNumber;
     private Discount discountCard;
-    private final Hashtable<Product, Integer> products;
+    private static Hashtable<Product, Integer> products;
 
     public Buyer(String name, Gender gender, String phoneNumber, Discount discountCard) {
         this.name = name;
@@ -41,15 +41,24 @@ public class Buyer {
         this.discountCard = discountCard;
     }
 
-    public Hashtable<Product,Integer> getProducts() {
+    public static Hashtable<Product,Integer> getProducts() {
         return products;
     }
 
     public void addProduct(Product product, int count) {
-        this.products.put(product,count);
+        products.put(product,count);
     }
 
     public void removeProduct(Product product) {
-        this.products.remove(product);
+        products.remove(product);
+    }
+
+    @Override
+    public String toString() {
+        return "Buyer:" + "\n" +
+                "name - " + name + "\n" +
+                "gender - " + gender + "\n" +
+                "phoneNumber - " + phoneNumber + "\n" +
+                "discountCard - " + discountCard + "\n";
     }
 }
