@@ -21,7 +21,7 @@ public class Order {
         return id;
     }
 
-    public double calculatePrice() {
+    private double calculatePrice() {
 
         Hashtable<Product, Integer> productList = buyer.getProducts();
 
@@ -34,7 +34,8 @@ public class Order {
         return priceProductList;
     }
 
-    private double calculatePayCheque() {
+    public double calculatePayCheque() {
+        calculatePrice();
         double personalPayCheque;
         if (buyer.getDiscountCard().getValue() != 0)
             personalPayCheque = priceProductList - (priceProductList * buyer.getDiscountCard().getValue());

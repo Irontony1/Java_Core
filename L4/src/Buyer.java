@@ -1,20 +1,18 @@
-import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.List;
 
 public class Buyer {
     private final String name;
     private final Gender gender;
     private String phoneNumber;
     private Discount discountCard;
-    private static Hashtable<Product, Integer> products;
+    private final Hashtable<Product, Integer> products;
 
     public Buyer(String name, Gender gender, String phoneNumber, Discount discountCard) {
         this.name = name;
         this.gender = gender;
         this.phoneNumber = phoneNumber;
         this.discountCard = discountCard;
-        products = new Hashtable<>();
+        this.products = new Hashtable<>();
     }
 
     public String getName() {
@@ -41,8 +39,8 @@ public class Buyer {
         this.discountCard = discountCard;
     }
 
-    public static Hashtable<Product,Integer> getProducts() {
-        return products;
+    public Hashtable<Product,Integer> getProducts() {
+        return this.products;
     }
 
     public void addProduct(Product product, int count) {
